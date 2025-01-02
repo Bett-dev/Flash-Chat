@@ -9,10 +9,37 @@ class WelcomeScreen extends StatefulWidget {
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+    controller.forward();
+
+    controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: animation.value,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -22,8 +49,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               Hero(
                 tag: 'hero',
                 child: Image.asset(
-                  'images/flash.jpeg',
-                  height: 60,
+                  'images/flash.png',
+                  height: 60.0,
                 ),
               ),
               Text(

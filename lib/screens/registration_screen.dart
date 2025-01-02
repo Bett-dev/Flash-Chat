@@ -4,7 +4,6 @@ import 'package:flash_chart/button.dart';
 class RegistarionScreen extends StatelessWidget {
   static String id = 'registration_screen';
   const RegistarionScreen({super.key});
- 
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,7 @@ class RegistarionScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Hero(
-            tag:'hero',
+            tag: 'hero',
             child: Image.asset(
               'images/flash.jpeg',
               height: 200,
