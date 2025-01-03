@@ -14,7 +14,7 @@ class RegistarionScreen extends StatelessWidget {
           Hero(
             tag: 'hero',
             child: Image.asset(
-              'images/flash.jpeg',
+              'images/flash.png',
               height: 200,
             ),
           ),
